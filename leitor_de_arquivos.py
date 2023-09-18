@@ -1,6 +1,6 @@
 import doctest
 
-def leitor_de_arquivos(nome_do_arquivo: str) -> str:
+def leitor_de_arquivos(path_do_arquivo: str) -> str:
     
     """
     Parâmetros
@@ -17,7 +17,7 @@ def leitor_de_arquivos(nome_do_arquivo: str) -> str:
     '21 de Abril de 2022 - 35 de Setembro de 2005'
     """
 
-    with open(nome_do_arquivo) as arquivo:
+    with open(path_do_arquivo) as arquivo:
         datas = arquivo.readlines()
     
     return datas[0]
