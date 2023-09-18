@@ -22,9 +22,18 @@ while True:
 
 datas = datas.split(" - ")
 
-data_1 = transforma_em_data(datas[0])
-data_2 = transforma_em_data(datas[1])
+try:
+    data_1 = transforma_em_data(datas[0])
+    data_2 = transforma_em_data(datas[1])
+    dias = contagem_dias(data_1, data_2)
+except ValueError:
+    # Se a data for inválida, como "31 de Setembro de 2023", essa exceção ocorrerá
+    print("Valor Inserido Inválido")
+    exit()
+except Exception as err:
+    # Se o formato inserido for inválido, como "28 do 04 de 2023", essa exceção ocorrerá
+    print(err)
+    exit()
 
-dias = contagem_dias(data_1, data_2)
 
 print("Número de dias entre as datas:", dias)

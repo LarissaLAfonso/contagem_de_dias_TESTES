@@ -1,8 +1,8 @@
 from datetime import date
 import doctest
 
-dicionario_meses = {"Janeiro":1, "Fevereiro":2, "Março":3, "Abril":4, "Maio":5, "Junho":6, 
-                    "Julho":7, "Agosto":8, "Setembro":9, "Outubro":10, "Novembro":11, "Dezembro":12}
+dicionario_meses = {"JANEIRO":1, "FEVEREIRO":2, "MARÇO":3, "ABRIL":4, "MAIO":5, "JUNHO":6, 
+                    "JULHO":7, "AGOSTO":8, "SETEMBRO":9, "OUTUBRO":10, "NOVEMBRO":11, "DEZEMBRO":12}
 
 def transforma_em_data(data_bruta: str) -> date:
     """
@@ -21,13 +21,15 @@ def transforma_em_data(data_bruta: str) -> date:
     """
     
     lista_de_datas = data_bruta.split(" ")
+    try:
+        dia = int(lista_de_datas[0])
+        mes = int(dicionario_meses[lista_de_datas[2].upper()])
+        ano = int(lista_de_datas[4])
+    except:
+        raise Exception("Formato inserido inválido")
     
-    dia_1 = int(lista_de_datas[0])
-    mes_1 = int(dicionario_meses[lista_de_datas[2]])
-    ano_1 = int(lista_de_datas[4])
-    
-    data_formatada = date(ano_1, mes_1, dia_1)
-    
+    data_formatada = date(ano, mes, dia)
+
     return data_formatada
 
 if __name__ == "__main__":
