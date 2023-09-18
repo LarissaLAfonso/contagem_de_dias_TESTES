@@ -1,5 +1,6 @@
 from contagem_dias import contagem_dias
 from leitor_de_arquivos import leitor_de_arquivos
+from funcao_transforma import transforma_em_data
 
 print("\nBem vindo ao contador_de_dias.py, siga as instruções a seguir.\n")
 
@@ -18,3 +19,12 @@ while True:
         break
     else:
         print("\n--> Valor inválido. Insira 1 ou 2. <--\n")
+
+datas = datas.split(" - ")
+
+data_1 = transforma_em_data(datas[0])
+data_2 = transforma_em_data(datas[1])
+
+dias = contagem_dias(data_1, data_2)
+
+print("Número de dias entre as datas:", dias)
